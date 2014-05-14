@@ -1,0 +1,22 @@
+{
+    "name": "datastore-js",
+    "version": "0.0.1",
+    "description": "JavaScript datastore",
+    "author": "Alexandru Marasteanu <hello@alexei.ro> (http://alexei.ro/)",
+    "main": "src/datastore.js",
+    "scripts": {
+        "test": "mocha test/test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alexei/datastore.js.git"
+    },
+    "license": "BSD-3-Clause",
+    "readmeFilename": "README.md",
+    "devDependencies": {
+        "mocha": "*",
+        "grunt": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-uglify": "*"
+    }
+}
