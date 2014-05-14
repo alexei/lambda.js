@@ -4,6 +4,21 @@
     var _ = function(array) {
     }
 
+    _.extend = function(dest, src, deep) {
+        Object.keys(src).forEach(function(key) {
+            dest[key] = src[key]
+            if (deep && _.isObject(src[key])) {
+                dest[key] = src[key] || {}
+                arguments.callee(dest[key], src[key])
+            }
+            else {
+                dest[key] = src[key]
+            }
+        })
+
+        return dest
+    }
+
     /**
      * type related function
      */
