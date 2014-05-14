@@ -1,4 +1,4 @@
-datastore.js
+collection.js
 ==========
 
-datastore.js
+collection.js
