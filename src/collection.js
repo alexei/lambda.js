@@ -33,6 +33,12 @@
     _.isNumeric = function(v) {
         return !isNaN(parseFloat(v))
     }
+    _.isScalar = function(v) {
+        return ["Boolean", "Number", "String"].indexOf(_.type(v)) > -1
+    }
+    _.isCompound = function(v) {
+        return ["Arguments", "Array", "Date", "Object", "RegExp"].indexOf(_.type(v)) > -1
+    }
 
     /**
      * export to either browser or node.js
