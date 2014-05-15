@@ -1,4 +1,4 @@
-(function(window) {
+;(function(window) {
     var undefined
 
     var _ = function(array) {
@@ -25,7 +25,7 @@
     _.type = function(v) {
         return Object.prototype.toString.call(v).slice(8, -1)
     }
-    ["Arguments", "Array", "Boolean", "Date", "Function", "Null", "Number", "Object", "RegExp", "String", "Undefined"].forEach(function(name) {
+    ;["Arguments", "Array", "Boolean", "Date", "Function", "Null", "Number", "Object", "RegExp", "String", "Undefined"].forEach(function(name) {
         _["is"+ name] = function(v) {
             return _.type(v) == name
         }
