@@ -8,8 +8,8 @@ module.exports = function(grunt) {
                 sourceMap: true
             },
             build: {
-                src: "src/datastore.js",
-                dest: "dist/datastore.min.js"
+                src: "src/collection.js",
+                dest: "dist/collection.min.js"
             }
         },
 
