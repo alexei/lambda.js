@@ -8,8 +8,8 @@ module.exports = function(grunt) {
                 sourceMap: true
             },
             build: {
-                src: "src/collection.js",
-                dest: "dist/collection.min.js"
+                src: "src/lambda.js",
+                dest: "dist/lambda.min.js"
             }
         },
 

@@ -2,18 +2,18 @@
     var undefined,
         proto = "prototype"
 
-    var _ = function(data) {
+    var L = function(data) {
         if (this == ctx) {
-            return new _(data)
+            return new L(data)
         }
 
         this.data = data || []
     }
 
-    _.extend = function(dest, src, deep) {
+    L.extend = function(dest, src, deep) {
         Object.keys(src).forEach(function(key) {
             dest[key] = src[key]
-            if (deep && _.isObject(src[key])) {
+            if (deep && L.isObject(src[key])) {
                 dest[key] = src[key] || {}
                 arguments.callee(dest[key], src[key])
             }
@@ -28,37 +28,37 @@
     /**
      * type related function
      */
-    _.type = function(v) {
+    L.type = function(v) {
         return Object.prototype.toString.call(v).slice(8, -1)
     }
     ;["Arguments", "Array", "Boolean", "Date", "Function", "Null", "Number", "Object", "RegExp", "String", "Undefined"].forEach(function(name) {
-        _["is"+ name] = function(v) {
-            return _.type(v) == name
+        L["is"+ name] = function(v) {
+            return L.type(v) == name
         }
     })
-    _.isNumeric = function(v) {
+    L.isNumeric = function(v) {
         return !isNaN(parseFloat(v))
     }
-    _.isScalar = function(v) {
-        return ["Boolean", "Number", "String"].indexOf(_.type(v)) > -1
+    L.isScalar = function(v) {
+        return ["Boolean", "Number", "String"].indexOf(L.type(v)) > -1
     }
-    _.isCompound = function(v) {
-        return ["Arguments", "Array", "Date", "Object", "RegExp"].indexOf(_.type(v)) > -1
+    L.isCompound = function(v) {
+        return ["Arguments", "Array", "Date", "Object", "RegExp"].indexOf(L.type(v)) > -1
     }
 
     /**
      * export to either browser or node.js
      */
     if (typeof exports !== "undefined") {
-        exports.collection = _
+        exports.L = L
     }
     else {
-        ctx.collection = _
+        ctx.L = L
 
         if (typeof define === "function" && define.amd) {
             define(function() {
                 return {
-                    collection: _
+                    L: L
                 }
             })
         }
