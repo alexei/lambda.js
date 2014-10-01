@@ -1,7 +1,13 @@
-;(function(window) {
-    var undefined
+;(function(ctx) {
+    var undefined,
+        proto = "prototype"
 
-    var _ = function(array) {
+    var _ = function(data) {
+        if (this == ctx) {
+            return new _(data)
+        }
+
+        this.data = data || []
     }
 
     _.extend = function(dest, src, deep) {
@@ -47,7 +53,7 @@
         exports.collection = _
     }
     else {
-        window.collection = _
+        ctx.collection = _
 
         if (typeof define === "function" && define.amd) {
             define(function() {
